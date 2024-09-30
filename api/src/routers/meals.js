@@ -92,7 +92,6 @@ mealRouter.post("/", async (req, res) => {
 
 
 
-
   // GET route to return a meal by id
   mealRouter.get("/:id", async (req, res) => {
     try {
@@ -155,4 +154,82 @@ mealRouter.delete('/:id', async (req, res) => {
 
 
 
+  // ______adding qwery parameters ____________
+
+
+  mealRouter.get('/', async (req, res) => {
+    const { availableReservations, maxPrice, title, dateAfter , dateBefore,limit , sortKey ,sortDir} = req.query; // Extract query parameters
+  
+    try {
+      let query = knex('Meal')
+        .leftJoin('Reservation', 'Meal.id', 'Reservation.meal_id')
+        .select('Meal.*')
+        .count('Reservation.id as reservations_count')
+        .groupBy('Meal.id');
+  
+      if (maxPrice) {
+        query = query.where('price', '<=', maxPrice);
+      }
+  
+      if (availableReservations !== undefined) {
+        if (availableReservations === 'true') {
+          query = query.havingRaw('reservations_count < Meal.max_reservations');
+        } else if (availableReservations === 'false') {
+          query = query.havingRaw('reservations_count >= Meal.max_reservations');
+        }
+      }
+  
+      if (title) {
+        console.log(`Filtering by title: ${title}`);
+        query = query.where('Meal.title', 'like', `%${title}%`);
+      }
+  
+      console.log(query.toString()); // Log the query being executed
+  
+
+        // Apply the dateAfter filter if provided
+    if (dateAfter) {
+        // Ensure date is formatted correctly (ISO format works best)
+        query = query.where('Meal.when', '>', dateAfter);
+      }
+
+      // apply date before 
+    if (dateBefore){
+    query= query.where('Meal.when', '<', dateBefore)
+    }
+
+
+    // Apply the limit if provided
+    if (limit) {
+        query = query.limit(limit); // Limit the number of results returned
+      }
+
+
+
+    // Apply sorting if sortKey is provided
+    if (sortKey) {
+        const validSortKeys = ['when', 'max_reservations', 'price'];
+        if (validSortKeys.includes(sortKey)) {
+
+            // detrmine sort direction 
+
+            const validSortDirs = ['asc', 'desc']; 
+            const direction = validSortDirs.includes(sortDir) ? sortDir : 'asc'; // Default to 'asc' if invalid sortDir
+
+          query = query.orderBy(sortKey, direction);  // Apply sorting with the specified direction
+        } else {
+          return res.status(400).json({ error: 'Invalid sortKey. Allowed values are: when, max_reservations, price.' });
+        }
+      }
+      
+      const meals = await query;
+      res.json(meals);
+    } catch (error) {
+      console.error('Error fetching meals:', error.message, error.stack);
+      res.status(500).json({ error: 'Internal Server Error', details: error.message });
+    }
+  });
+  
+ 
+  
 export default mealRouter;
