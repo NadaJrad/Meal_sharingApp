@@ -5,8 +5,10 @@ import bodyParser from "body-parser";
 import knex from "./database_client.js"; // Your database connection
 import mealRouter from "./routers/meals.js"; // Import the meal router
 import reservationRouter from "./routers/reservations.js"; // Import the reservation router
+import reviewRouter from "./routers/reviews.js";
 
 const app = express();
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -25,9 +27,9 @@ apiRouter.get("/", async (req, res) => {
 // Use meals and reservations routers
 apiRouter.use("/meals", mealRouter);  // Add meals routes to /meals
 apiRouter.use("/reservations", reservationRouter);  // Add reservations routes to /reservations
+apiRouter.use('/reviews', reviewRouter);
 
 app.use("/api", apiRouter);
-
 app.listen(process.env.PORT, () => {
   console.log(`API listening on port ${process.env.PORT}`);
 });
