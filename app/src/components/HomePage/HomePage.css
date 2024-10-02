@@ -1,9 +1,96 @@
-.link {
-  display: flex;
-  margin: 5vh 0;
+.header {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between logo and menu */
+  align-items: center; /* Center align items vertically */
+  padding: 10px 20px; /* Padding inside the header */
+  background-color: #2e746a; /* Header background color */
 }
 
-.logo,
-.message {
-  margin: auto;
+.logo-link {
+  text-decoration: none; /* Remove underline */
+}
+
+.logo {
+  height: 40px; /* Adjust logo height */
+}
+
+.menu {
+  display: flex; /* Display menu items in a row */
+  gap: 20px; /* Space between menu items */
+}
+
+.menu-item {
+  color: white; /* Menu text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make text bold */
+}
+
+.menu-item:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.featured-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+h2 {
+  margin-bottom: 20px; /* Space below the title */
+  font-size: 2em; /* Increase font size */
+  text-align: center; /* Center the title text */
+  color: #333; /* Darker color for contrast */
+}
+
+.view-more-button {
+  padding: 10px 20px; /* Padding inside the button */
+  background-color: #2e746a; /* Bootstrap primary color */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor pointer on hover */
+  font-size: 1em; /* Font size */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  margin-top: 20px; /* Space above the button */
+}
+
+.view-more-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.featured-meals {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center align items */
+  margin: 20px 0; /* Margin above and below the section */
+}
+
+.meal-card {
+  background-color: #f8f9fa; /* Light background for cards */
+  border: 1px solid #dee2e6; /* Border for the cards */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Inner padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 200px; /* Fixed width for cards */
+  text-align: center; /* Center text in cards */
+}
+
+.meal-card h3 {
+  font-size: 1.2em; /* Slightly larger title */
+  margin-bottom: 10px; /* Space below title */
+}
+
+.meal-card p {
+  margin: 5px 0; /* Space between paragraphs */
+}
+
+.footer {
+  text-align: center; /* Center the text */
+  padding: 10px 0; /* Padding above and below */
+  background-color: #f8f9fa; /* Footer background color */
+  position: relative; /* Adjust position */
+  bottom: 0; /* Align to the bottom */
+  width: 100%; /* Full width */
 }
