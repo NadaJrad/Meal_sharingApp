@@ -3,7 +3,7 @@
   justify-content: space-between; /* Space between logo and menu */
   align-items: center; /* Center align items vertically */
   padding: 10px 20px; /* Padding inside the header */
-  background-color: #2e746a; /* Header background color */
+  background-color: rgba(248, 249, 250, 0.239); /* Header background color */
 }
 
 .logo-link {
@@ -20,7 +20,7 @@
 }
 
 .menu-item {
-  color: white; /* Menu text color */
+  color: rgb(47, 44, 44); /* Menu text color */
   text-decoration: none; /* Remove underline */
   font-weight: bold; /* Make text bold */
 }
@@ -40,7 +40,7 @@ h2 {
   margin-bottom: 20px; /* Space below the title */
   font-size: 2em; /* Increase font size */
   text-align: center; /* Center the title text */
-  color: #333; /* Darker color for contrast */
+  color: black /* Darker color for contrast */
 }
 
 .view-more-button {
@@ -89,8 +89,24 @@ h2 {
 .footer {
   text-align: center; /* Center the text */
   padding: 10px 0; /* Padding above and below */
-  background-color: #f8f9fa; /* Footer background color */
+  background-color: rgba(248, 249, 250, 0.326);
   position: relative; /* Adjust position */
   bottom: 0; /* Align to the bottom */
   width: 100%; /* Full width */
 }
+
+
+
+
+
+
+
+body {
+  background-image: url('../../assets/background_img.jpg'); /* Adjust the path as necessary */
+  background-size: cover; /* Ensures the image covers the whole body */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents tiling */
+  color: #333; /* Default text color */
+}
+
+
