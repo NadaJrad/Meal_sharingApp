@@ -1,0 +1,35 @@
+/* MealsList.css */
+.meals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates a responsive grid */
+    gap: 16px; /* Space between the grid items */
+    padding: 16px; /* Padding around the grid */
+  }
+  
+  .meal-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the text within the card */
+  }
+  
+  .meal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .meal-description {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .meal-price {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  
+ 
+  
+  

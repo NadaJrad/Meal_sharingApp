@@ -1,5 +1,6 @@
 import React from "react";
 import hyfLogo from "../../assets/hyf.svg";
+
 import "./HomePage.css";
 
 // Feel free to replace the content of this component with your own

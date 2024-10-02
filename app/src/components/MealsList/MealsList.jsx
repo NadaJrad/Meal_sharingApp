@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-
+import Meal from "../Meal/Meal.jsx";
+import "./MealsList.css";
 const MealsList = () => {
   const [meals, setMeals] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -23,17 +25,13 @@ const MealsList = () => {
 
     fetchMeals();
   }, []);
+  if (loading) return <p>Loading meals...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
-      <h1>Meals List</h1>
-      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+    <div className="meals-grid">
       {meals.map((meal) => (
-        <div key={meal.id}>
-          <h2>{meal.title}</h2>
-          <p>{meal.description}</p>
-          <p>Price: {meal.price}</p>
-        </div>
+        <Meal key={meal.id} meal={meal} />
       ))}
     </div>
   );
