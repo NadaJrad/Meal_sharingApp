@@ -45,14 +45,22 @@ const MealDetails = () => {
   const handleReservationSubmit = async (e) => {
     e.preventDefault();
     try {
+      const requestBody = {
+        mealId: id,
+        ...reservationData, // Spread the reservation data
+      };
       const response = await fetch("http://localhost:3001/api/reservations", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          mealId: id,
-          ...reservationData, // Spread the reservation data
+          meal_id: id, // Passing meal ID
+          number_of_guests: reservationData.numberOfGuests,
+          contact_phonenumber: reservationData.phoneNumber,
+          contact_name: reservationData.name,
+          contact_email: reservationData.email,
+          created_date: new Date().toISOString(), // Adding the current dat
         }),
       });
 
@@ -60,8 +68,8 @@ const MealDetails = () => {
         throw new Error(`Error creating reservation: ${response.status}`);
       }
 
-      // Optionally, you can handle a successful reservation here
       alert("Reservation created successfully!");
+      navigate("/meals");
     } catch (error) {
       setError(error.message);
     }
