@@ -5,7 +5,7 @@ import HomePage from "./components/HomePage/HomePage.jsx";
 import TestPage from "./components/TestPage/TestPage.jsx";
 import "./main.css";
 import MealsList from "./components/MealsList/MealsList.jsx";
-
+import MealDetails from "./components/MealDetails/MealDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/meals",
     element: <MealsList />,
+  },
+  {
+    path: "/meals/:id",
+    element: <MealDetails />,
   },
 ]);
 

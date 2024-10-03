@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Meal from "../Meal/Meal.jsx";
 import "./MealsList.css";
 const MealsList = () => {
@@ -31,7 +32,12 @@ const MealsList = () => {
   return (
     <div className="meals-grid">
       {meals.map((meal) => (
-        <Meal key={meal.id} meal={meal} />
+        <div key={meal.id}>
+          <Meal meal={meal} />
+          <Link to={`/meals/${meal.id}`} className="view-details-link">
+            View Details
+          </Link>
+        </div>
       ))}
     </div>
   );

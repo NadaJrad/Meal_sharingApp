@@ -32,4 +32,67 @@
   
  
   
+  .view-details-link {
+    display: inline-block; /* Make it behave like a block element */
+    padding: 10px 20px; /* Padding inside the link */
+    margin-top: 10px; /* Space above the link */
+  background-color: #2e746a; /* Bootstrap primary color */
+  background-color: ; /* Button color */
+    color: white; /* Text color */
+    text-align: center; /* Center the text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1em; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
   
+  .view-details-link:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+
+
+.meal-detail {
+  max-width: 600px;
+  margin: 0 auto; /* Center align */
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background-color: #f8f9fa; /* Light background */
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
