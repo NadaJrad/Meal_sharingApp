@@ -37,8 +37,8 @@
 }
 
 h2 {
-  margin-bottom: 20px; /* Space below the title */
-  font-size: 2em; /* Increase font size */
+  margin-bottom: 40px; /* Space below the title */
+  font-size: 5em; /* Increase font size */
   text-align: center; /* Center the title text */
   color: black /* Darker color for contrast */
 }

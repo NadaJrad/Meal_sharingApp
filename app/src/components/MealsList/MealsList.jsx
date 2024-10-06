@@ -16,6 +16,7 @@ const MealsList = () => {
         }
 
         const data = await response.json();
+        
         setMeals(data);
         setError(null);
       } catch (error) {
