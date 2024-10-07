@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Meal from "../Meal/Meal.jsx";
+import { Grid, Card, CardContent } from "@mui/material";
+
 import "./MealsList.css";
+
 const MealsList = () => {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -16,7 +19,6 @@ const MealsList = () => {
         }
 
         const data = await response.json();
-        
         setMeals(data);
         setError(null);
       } catch (error) {
@@ -27,20 +29,29 @@ const MealsList = () => {
 
     fetchMeals();
   }, []);
+
   if (loading) return <p>Loading meals...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="meals-grid">
+    <Grid container spacing={2} justifyContent="center">
+      {" "}
+      {/* MUI Grid container */}
       {meals.map((meal) => (
-        <div key={meal.id}>
-          <Meal meal={meal} />
-          <Link to={`/meals/${meal.id}`} className="view-details-link">
-            View Details
-          </Link>
-        </div>
+        <Grid item xs={12} sm={6} md={4} key={meal.id}>
+          {" "}
+          {/* Grid item for each meal */}
+          <Card>
+            <CardContent>
+              <Meal meal={meal} />
+              <Link to={`/meals/${meal.id}`} className="view-details-link">
+                View Details
+              </Link>
+            </CardContent>
+          </Card>
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
 
