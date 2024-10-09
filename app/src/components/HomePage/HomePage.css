@@ -1,28 +1,78 @@
+/* Search Bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ff6347;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.search-bar:focus {
+  border-color: #0056b3;
+}
+
+
+/* Logo and title wrapper */
+.logo-title {
+  display: flex;
+  align-items: center; /* Align logo and title vertically */
+  gap: 15px; /* Space between logo and title */
+}
+
+/* Style for the app logo (Material UI icon) */
+.app-logo {
+  font-size: 55px; /* Adjust the size of the Material UI icon */
+  color: #ff6347; /* Custom color for the icon */
+}
+
+/* Style for the app title */
+.app-title {
+  font-size: 40px; /* Large font size */
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold; /* Bold text */
+  color: rgb(251, 255, 14); /* Light text color */
+  text-align: center; /* Center the title */
+  margin: 0; /* Remove default margin */
+}
+
+/* Style for the "OO" part in the title */
+.highlighted-oo {
+  color: #ff6347; /* Custom color for "OO" (tomato color) */
+}
+
+/* Style for the header */
 .header {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space between logo and menu */
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between title and menu */
   align-items: center; /* Center align items vertically */
   padding: 10px 20px; /* Padding inside the header */
-  background-color: rgba(248, 249, 250, 0.239); /* Header background color */
+  background-color: rgba(248, 249, 250, 0.544); /* Header background color */
 }
 
-.logo-link {
-  text-decoration: none; /* Remove underline */
-}
 
-.logo {
-  height: 40px; /* Adjust logo height */
-}
 
+
+
+/* Rest of the CSS remains the same */
 .menu {
   display: flex; /* Display menu items in a row */
-  gap: 20px; /* Space between menu items */
+  gap: 40px; /* Space between menu items */
 }
 
 .menu-item {
-  color: black; 
+  color: black; /* Light text color */ 
   text-decoration: none; 
-  font-weight: bold; 
+  /* font-weight: bold;  */
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .menu-item:hover {
@@ -38,14 +88,14 @@
 
 h2 {
   margin-bottom: 40px; /* Space below the title */
-  font-size: 5em; /* Increase font size */
+  font-size: 2em; /* Font size */
   text-align: center; /* Center the title text */
-  color: black /* Darker color for contrast */
+  color: whitesmoke /* Light text color */
 }
 
 .view-more-button {
   padding: 10px 20px; /* Padding inside the button */
-  background-color: #2e746a; /* Bootstrap primary color */
+  background-color: #ff6347; /* Bootstrap primary color */
   color: white; /* White text color */
   border: none; /* Remove default border */
   border-radius: 5px; /* Rounded corners */
@@ -53,8 +103,13 @@ h2 {
   font-size: 1em; /* Font size */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
   margin-top: 20px; /* Space above the button */
+ 
 }
-
+.view-more-container {
+  display: flex;
+  justify-content: center; /* Center the button */
+  margin: 20px 0; /* Space above and below the button */
+}
 .view-more-button:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
@@ -89,17 +144,13 @@ h2 {
 .footer {
   text-align: center; /* Center the text */
   padding: 10px 0; /* Padding above and below */
-  background-color: rgba(248, 249, 250, 0.326);
+  background-color: rgba(248, 249, 250, 0);
   position: relative; /* Adjust position */
   bottom: 0; /* Align to the bottom */
   width: 100%; /* Full width */
+  font-size: large;
+  color: white;
 }
-
-
-
-
-
-
 
 body {
   background-image: url('../../assets/background_img.jpg'); /* Adjust the path as necessary */
@@ -108,5 +159,3 @@ body {
   background-repeat: no-repeat; /* Prevents tiling */
   color: #333; /* Default text color */
 }
-
-

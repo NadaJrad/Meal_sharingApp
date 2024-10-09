@@ -25,6 +25,10 @@
     margin: 5px 0; /* Space between paragraphs */
     line-height: 1.5; /* Improve readability */
   }
+  h2  {
+    font-size: 30px;
+    color: #333;
+  }
   
   
   
@@ -33,7 +37,7 @@
   
   button {
     padding: 10px 15px; /* Padding inside buttons */
-    background-color: #2e746a; /* Primary button color */
+    background-color: #ff6347; /* Primary button color */
     color: white; /* White text color */
     border: none; /* Remove default border */
     border-radius: 5px; /* Rounded corners */

@@ -36,8 +36,7 @@
     display: inline-block; /* Make it behave like a block element */
     padding: 10px 20px; /* Padding inside the link */
     margin-top: 10px; /* Space above the link */
-  background-color: #2e746a; /* Bootstrap primary color */
-  background-color: ; /* Button color */
+  background-color: #ff6347; /* Bootstrap primary color */
     color: white; /* Text color */
     text-align: center; /* Center the text */
     border: none; /* Remove border */

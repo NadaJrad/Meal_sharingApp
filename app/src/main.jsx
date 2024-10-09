@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   // This route can be removed and replaced with your own page
   {
-    path: "/nested",
+    path: "/settings",
     element: <TestPage />,
   },
 

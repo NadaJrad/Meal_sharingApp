@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import hyfLogo from "../../assets/hyf.svg";
+import FastfoodIcon from "@mui/icons-material/Fastfood"; // You can replace this with any other icon if desired
 import "./HomePage.css";
 
 function HomePage() {
   const [featuredMeals, setFeaturedMeals] = useState([]);
+  const [filteredMeals, setFilteredMeals] = useState([]); // For filtered results
+  const [searchQuery, setSearchQuery] = useState(""); // Search input
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -17,6 +19,7 @@ function HomePage() {
         }
         const data = await response.json();
         setFeaturedMeals(data); // Set state with fetched meals
+        setFilteredMeals(data); // Initialize filtered meals with all meals
         setError(null);
       } catch (error) {
         console.error("Error fetching featured meals:", error);
@@ -28,17 +31,31 @@ function HomePage() {
     fetchFeaturedMeals();
   }, []);
 
+  // Handle search input changes
+  const handleSearchChange = (e) => {
+    const query = e.target.value.toLowerCase(); // Normalize input
+    setSearchQuery(query);
+
+    // Filter meals based on the search query
+    const filtered = featuredMeals.filter((meal) =>
+      meal.title.toLowerCase().includes(query)
+    );
+    setFilteredMeals(filtered); // Update the filtered list
+  };
+
+  // Get only six meals to display on the homepage
+  const displayedMeals = filteredMeals.slice(0, 6);
+
   return (
     <>
+      {/* Header section with logo and navigation */}
       <header className="header">
-        <a
-          href="https://www.hackyourfuture.dk/"
-          target="_blank"
-          rel="noreferrer"
-          className="logo-link"
-        >
-          <img src={hyfLogo} alt="HackYourFuture logo" className="logo" />
-        </a>
+        <div className="logo-title">
+          <FastfoodIcon className="app-logo" />
+          <h1 className="app-title">
+            F<span className="highlighted-oo">OO</span>diesHub
+          </h1>
+        </div>
         <nav className="menu">
           <a href="/" className="menu-item">
             Home
@@ -46,26 +63,35 @@ function HomePage() {
           <a href="/meals" className="menu-item">
             Meals
           </a>
-          <a href="/nested" className="menu-item">
-            Nested Page
+          <a href="/reservations" className="menu-item">
+            Reservations
           </a>
         </nav>
       </header>
+      {/* Search Bar */}
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Search meals..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+      </div>
       {loading && <p>Loading featured meals...</p>} {/* Loading state */}
       {error && <p>Error: {error}</p>} {/* Error state */}
-      <div className="featured-section">
-        <h2>Featured Meals</h2>
-
-        <div className="featured-meals">
-          {featuredMeals.slice(0, 6).map((meal) => (
-            <div key={meal.id} className="meal-card">
-              <h3>{meal.title}</h3>
-              <p>{meal.description}</p>
-              <p>Price: {meal.price} DKK</p>
-            </div>
-          ))}
-        </div>
-
+      {/* Display only the first six filtered meals */}
+      <div className="featured-meals">
+        {displayedMeals.map((meal) => (
+          <div key={meal.id} className="meal-card">
+            <h3>{meal.title}</h3>
+            <p>{meal.description}</p>
+            <p>Price: {meal.price} DKK</p>
+          </div>
+        ))}
+      </div>
+      {/* View More Meals Button */}
+      <div className="view-more-container">
         <a href="/meals" className="view-more-button">
           View More Meals
         </a>
