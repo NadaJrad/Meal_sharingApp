@@ -44,7 +44,7 @@ function HomePage() {
   };
 
   // Get only six meals to display on the homepage
-  const displayedMeals = filteredMeals.slice(0, 6);
+  const displayedMeals = filteredMeals.slice(0, 7);
 
   return (
     <>
@@ -63,8 +63,8 @@ function HomePage() {
           <a href="/meals" className="menu-item">
             Meals
           </a>
-          <a href="/reservations" className="menu-item">
-            Reservations
+          <a href="/settings" className="menu-item">
+            Settings
           </a>
         </nav>
       </header>
@@ -84,6 +84,7 @@ function HomePage() {
       <div className="featured-meals">
         {displayedMeals.map((meal) => (
           <div key={meal.id} className="meal-card">
+            <img src={meal.image} alt={meal.title} className="meal-image" />
             <h3>{meal.title}</h3>
             <p>{meal.description}</p>
             <p>Price: {meal.price} DKK</p>

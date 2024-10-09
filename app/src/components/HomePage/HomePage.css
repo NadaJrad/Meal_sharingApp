@@ -159,3 +159,28 @@ body {
   background-repeat: no-repeat; /* Prevents tiling */
   color: #333; /* Default text color */
 }
+.meal-list {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: space-around; /* Space between items */
+  margin: 20px; /* Margin around the list */
+}
+
+.meal-card {
+  background-color: #fff; /* Background color for each meal card */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 15px; /* Margin between meal cards */
+  padding: 10px; /* Padding inside the card */
+  width: 200px; /* Fixed width for consistency */
+  text-align: center; /* Center text inside the card */
+}
+
+.meal-image {
+  width: 100%; /* Make the image take full width of the card */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Rounded corners for the image */
+  max-height: 150px; /* Maximum height for the image */
+  object-fit: cover; /* Crop the image to fill the space */
+}
