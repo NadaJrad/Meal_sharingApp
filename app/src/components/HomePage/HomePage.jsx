@@ -68,6 +68,14 @@ function HomePage() {
           </a>
         </nav>
       </header>
+      {/* Welcome Section */}
+      <div className="welcome-section">
+        <h1 className="welcome-title">Welcome to FoodiesHub</h1>
+        <p className="welcome-paragraph">
+          Find your destination and book a private meal with the best home cooks
+          in their homes around the world!
+        </p>
+      </div>
       {/* Search Bar */}
       <div className="search-container">
         <input

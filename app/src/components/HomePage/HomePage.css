@@ -35,10 +35,10 @@
 
 /* Style for the app title */
 .app-title {
-  font-size: 40px; /* Large font size */
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 30px; /* Large font size */
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold; /* Bold text */
-  color: rgb(251, 255, 14); /* Light text color */
+  color: black; /* Light text color */
   text-align: center; /* Center the title */
   margin: 0; /* Remove default margin */
 }
@@ -121,15 +121,12 @@ h2 {
   justify-content: center; /* Center align items */
   margin: 20px 0; /* Margin above and below the section */
 }
-
-.meal-card {
-  background-color: #f8f9fa; /* Light background for cards */
-  border: 1px solid #dee2e6; /* Border for the cards */
-  border-radius: 8px; /* Rounded corners */
-  padding: 15px; /* Inner padding */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  width: 200px; /* Fixed width for cards */
-  text-align: center; /* Center text in cards */
+.meal-image {
+  width: 100%; /* Image takes full width of the card */
+  height: 150px; /* Fixed height for the image */
+  object-fit: cover; /* Ensures image maintains aspect ratio while covering the area */
+  border-radius: 5px; /* Rounded corners for the image */
+  margin-bottom: 10px; /* Space between image and text */
 }
 
 .meal-card h3 {
@@ -155,9 +152,23 @@ h2 {
 body {
   background-image: url('../../assets/background_img.jpg'); /* Adjust the path as necessary */
   background-size: cover; /* Ensures the image covers the whole body */
+  background-attachment: fixed; 
   background-position: center; /* Centers the background image */
   background-repeat: no-repeat; /* Prevents tiling */
   color: #333; /* Default text color */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif; 
+}
+.header,
+.footer {
+  background-color: rgba(248, 249, 250, 0.544); /* Slight transparency for header and footer */
+}
+
+html, body {
+  min-height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 .meal-list {
   display: flex;
@@ -167,14 +178,17 @@ body {
 }
 
 .meal-card {
-  background-color: #fff; /* Background color for each meal card */
-  border: 1px solid #ddd; /* Light border */
+  background-color: #f8f9fa; /* Light background for cards */
+  border: 1px solid #dee2e6; /* Border for the cards */
   border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin: 15px; /* Margin between meal cards */
-  padding: 10px; /* Padding inside the card */
-  width: 200px; /* Fixed width for consistency */
-  text-align: center; /* Center text inside the card */
+  padding: 15px; /* Inner padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 200px; /* Fixed width for all cards */
+  height: 350px; /* Fixed height for all cards */
+  text-align: center; /* Center text in cards */
+  display: flex; /* Use flexbox for content alignment */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Spread content evenly */
 }
 
 .meal-image {
@@ -183,4 +197,27 @@ body {
   border-radius: 5px; /* Rounded corners for the image */
   max-height: 150px; /* Maximum height for the image */
   object-fit: cover; /* Crop the image to fill the space */
+}
+
+.welcome-section {
+  text-align: center; /* Centers the title and paragraph */
+  margin-bottom: 30px; /* Adds space below the section */
+  padding: 20px;
+}
+
+.welcome-title {
+  font-size: 5em; /* Large font size for the title */
+  font-weight: bold; /* Makes the title bold */
+  color: rgb(203, 178, 178); /* Darker color for the title */
+  margin-bottom: 10px; /* Space between the title and paragraph */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.welcome-paragraph {
+  font-size: 2em; /* Slightly larger font for the paragraph */
+  color: rgb(203, 178, 178);; /* Lighter color for the paragraph */
+  margin: 0 auto; /* Center-aligns paragraph text */
+  max-width: 600px; /* Restricts the width of the paragraph */
+  line-height: 1.5; /* Better readability with line spacing */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
