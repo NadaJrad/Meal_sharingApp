@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FastfoodIcon from "@mui/icons-material/Fastfood"; // You can replace this with any other icon if desired
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const [featuredMeals, setFeaturedMeals] = useState([]);
@@ -96,6 +97,9 @@ function HomePage() {
             <h3>{meal.title}</h3>
             <p>{meal.description}</p>
             <p>Price: {meal.price} DKK</p>
+            <Link to={`/meals/${meal.id}`} className="view-meal-button">
+              View Details
+            </Link>
           </div>
         ))}
       </div>
